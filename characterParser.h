@@ -1,7 +1,7 @@
 //
 // Project 1
 // CS 341 Spring 2021
-// << Your Name Here >>
+// Waleed Hasan
 //
 // The header file for the characterParser class, a collection of characters
 // This class comes with an iterator provided, charIterator
@@ -48,13 +48,15 @@ public:
     // begin()
     //
     //  Returns an charIterator pointing to the first element of the string.
-    charIterator begin();
+    acronymIterator begin();
+
+    charIterator charbegin();
 
     // end()
     //
     //  Returns an charIterator pointing "after" the last element of the string.
-    charIterator end();
-
+    acronymIterator end();
+    charIterator charend();
     // printAllCharacters()
     //
     //  Sends all the characters in the CharacterParser container to standard input in order

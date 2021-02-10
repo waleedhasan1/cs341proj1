@@ -47,7 +47,12 @@ characterParser::characterParser(std::string str)
 // begin()
 //
 //  Returns an charIterator pointing to the first element of the string.
-characterParser::charIterator characterParser::begin()
+characterParser::acronymIterator characterParser::begin()
+{
+    return acronymIterator(array);
+}
+
+characterParser::charIterator characterParser::charbegin() //this is so we can use chariterator for printallcharacters
 {
     return charIterator(array);
 }
@@ -55,10 +60,16 @@ characterParser::charIterator characterParser::begin()
 // end()
 //
 //  Returns an charIterator pointing "after" the last element of the string.
-characterParser::charIterator characterParser::end()
+characterParser::acronymIterator characterParser::end()
+{
+    return acronymIterator(array + length);
+}
+
+characterParser::charIterator characterParser::charend() //this is so we can use chariterator for printallcharacters
 {
     return charIterator(array + length);
 }
+
 
 // printAllCharacters
 //
@@ -66,11 +77,23 @@ characterParser::charIterator characterParser::end()
 // Requires modification after the default iterator has been changed
 void characterParser::printAllCharacters()
 {
-    for (char c : *this)
+    //for (char c : *this)  
+    
+    for (auto iter = (*this).charbegin(); iter != (*this).charend(); ++iter) //auto iter=*this.begin; iter != *this.end; ++iter;
     {
-        std::cout << c;
+        char c = *iter;
+        std::cout << c;    //char c = *iter;  cout << c << endl;
     }
     std::cout << std::endl;
+    
+    //what used to be here
+    /*
+   for (char c : *this)
+   {
+       std::cout << c;
+   }
+    std::cout << std::endl;
+    */ 
 }
 
 
